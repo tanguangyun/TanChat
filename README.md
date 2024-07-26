@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://librechat.ai">
-    <img src="client/public/assets/logo.svg" height="256">
+    <img src="client/public/assets/logo-1.svg" height="256">
   </a>
   <h1 align="center">
     <a href="https://librechat.ai">LibreChat</a>
@@ -40,6 +40,7 @@
 
 # 📃 Features
 
+- 作者源码地址/更新：https://github.com/danny-avila/LibreChat
 - 🖥️ UI matching ChatGPT, including Dark mode, Streaming, and latest updates
 - 🤖 AI model selection:
   - OpenAI, Azure OpenAI, BingAI, ChatGPT, Google Vertex AI, Anthropic (Claude), Plugins, Assistants API (including Azure Assistants)
