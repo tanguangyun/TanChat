@@ -1,31 +1,40 @@
 # For more information, see the Configuration Guide:
+# 有关详细信息，请参阅配置指南：
 # https://www.librechat.ai/docs/configuration/librechat_yaml
 
 # Configuration version (required)
+# 配置版本(必填)
 version: 1.1.5
 
 # Cache settings: Set to true to enable caching
+# 缓存设置：设置为true以启用缓存
 cache: true
 
 # Custom interface configuration
+# 自定义接口配置
 interface:
   # Privacy policy settings
+  # 隐私政策设置
   privacyPolicy:
     externalUrl: 'https://librechat.ai/privacy-policy'
     openNewTab: true
 
   # Terms of service
+  # 服务条款
   termsOfService:
     externalUrl: 'https://librechat.ai/tos'
     openNewTab: true
 
 # Example Registration Object Structure (optional)
+# 示例注册对象结构(可选)
 registration:
   socialLogins: ['github', 'google', 'discord', 'openid', 'facebook']
+  # 社交登录
   # allowedDomains:
   # - "gmail.com"
 
 # speech:
+# 语音输入输出
 #   tts:
 #     openai:
 #       url: ''
@@ -41,33 +50,41 @@ registration:
 
 # rateLimits:
 #   fileUploads:
+#   文件上传
 #     ipMax: 100
 #     ipWindowInMinutes: 60  # Rate limit window for file uploads per IP
 #     userMax: 50
 #     userWindowInMinutes: 60  # Rate limit window for file uploads per user
 #   conversationsImport:
+#   会话导入
 #     ipMax: 100
 #     ipWindowInMinutes: 60  # Rate limit window for conversation imports per IP
 #     userMax: 50
 #     userWindowInMinutes: 60  # Rate limit window for conversation imports per user
 
 # Definition of custom endpoints
+# 自定义端口的定义
 endpoints:
   # assistants:
-  #   disableBuilder: false # Disable Assistants Builder Interface by setting to `true`
-  #   pollIntervalMs: 3000  # Polling interval for checking assistant updates
-  #   timeoutMs: 180000  # Timeout for assistant operations
+  #   disableBuilder: false # Disable Assistants Builder Interface by setting to `true` # 通过设置为“true”禁用辅助生成器界面
+  #   pollIntervalMs: 3000  # Polling interval for checking assistant updates # 检查助手更新的轮询间隔
+  #   timeoutMs: 180000  # Timeout for assistant operations # 助理行动超时
   #   # Should only be one or the other, either `supportedIds` or `excludedIds`
+  #   # 应该只有一个或另一个，要么“支持”，要么“排除”
   #   supportedIds: ["asst_supportedAssistantId1", "asst_supportedAssistantId2"]
   #   # excludedIds: ["asst_excludedAssistantId"]
-  #   Only show assistants that the user created or that were created externally (e.g. in Assistants playground).
-  #   # privateAssistants: false # Does not work with `supportedIds` or `excludedIds`
+  #   Only show assistants that the user created or that were created externally (e.g. in Assistants playground). 
+  #   仅显示用户创建或外部创建的助手(例如在助手游乐场).
+  #   # privateAssistants: false # Does not work with `supportedIds` or `excludedIds` # 不适用于“支持ID”或“排除ID”
   #   # (optional) Models that support retrieval, will default to latest known OpenAI models that support the feature
+  #   # (可选)支持检索的模型将默认为支持该功能的最新已知OpenAI模型
   #   retrievalModels: ["gpt-4-turbo-preview"]
   #   # (optional) Assistant Capabilities available to all users. Omit the ones you wish to exclude. Defaults to list below.
+  #   # (可选)所有用户都可以使用的助手功能，省略您要排除的功能，默认在下面列出.
   #   capabilities: ["code_interpreter", "retrieval", "actions", "tools", "image_vision"]
   custom:
     # Groq Example
+    # Groq示例
     - name: 'groq'
       apiKey: '${GROQ_API_KEY}'
       baseURL: 'https://api.groq.com/openai/v1/'
@@ -86,6 +103,7 @@ endpoints:
       modelDisplayLabel: 'groq'
 
     # Mistral AI Example
+    # Mistral AI示例
     - name: 'Mistral' # Unique name for the endpoint
       # For `apiKey` and `baseURL`, you can use environment variables that you define.
       # recommended environment variables:
@@ -131,6 +149,7 @@ endpoints:
       dropParams: ['stop', 'user', 'frequency_penalty', 'presence_penalty']
 
     # OpenRouter Example
+    # OpenRouter示例
     - name: 'OpenRouter'
       # For `apiKey` and `baseURL`, you can use environment variables that you define.
       # recommended environment variables:
