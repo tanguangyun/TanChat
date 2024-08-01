@@ -163,8 +163,8 @@ export default {
   com_auth_error_login_rl: '尝试登录次数过多，请稍后再试。',
   com_auth_error_login_ban: '根据我们的服务规则，您的帐号被暂时禁用。',
   com_auth_error_login_server: '内部服务器错误，请稍后再试。',
-  com_auth_no_account: '新用户注册',
-  com_auth_sign_up: '注册',
+  com_auth_no_account: 'Don\'t have an account?',
+  com_auth_sign_up: 'Sign up',
   com_auth_sign_in: '登录',
   com_auth_google_login: '使用 Google 登录',
   com_auth_facebook_login: '使用 Facebook 登录',
@@ -175,15 +175,15 @@ export default {
   com_auth_email_min_length: '邮箱地址至少6个字符',
   com_auth_email_max_length: '邮箱地址最多120个字符',
   com_auth_email_pattern: '请输入正确的电子邮箱格式',
-  com_auth_email_address: '电子邮箱地址',
-  com_auth_password: '密码',
+  com_auth_email_address: 'Email address',
+  com_auth_password: 'Password',
   com_auth_password_required: '密码为必填项',
   com_auth_password_min_length: '密码至少8个字符',
   com_auth_password_max_length: '密码最多128个字符',
   com_auth_password_forgot: '忘记密码?',
   com_auth_password_confirm: '确认密码',
   com_auth_password_not_match: '密码不一致',
-  com_auth_continue: '继续',
+  com_auth_continue: '登录',
   com_auth_create_account: '创建账号',
   com_auth_error_create: '注册账户过程中出现错误，请重试。',
   com_auth_full_name: '姓名',
@@ -209,7 +209,7 @@ export default {
   com_auth_click_here: '点击这里',
   com_auth_to_try_again: '再试一次。',
   com_auth_submit_registration: '注册提交',
-  com_auth_welcome_back: '欢迎',
+  com_auth_welcome_back: 'Welcome back',
   com_auth_back_to_login: '返回登录',
   com_endpoint_open_menu: '打开菜单',
   com_endpoint_bing_enable_sydney: '启用 Sydney',
@@ -1188,11 +1188,11 @@ export const comparisons = {
   },
   com_auth_no_account: {
     english: 'Don\'t have an account?',
-    translated: '新用户注册',
+    translated: 'Don\'t have an account?',
   },
   com_auth_sign_up: {
     english: 'Sign up',
-    translated: '注册',
+    translated: 'Sign up',
   },
   com_auth_sign_in: {
     english: 'Sign in',
@@ -1236,11 +1236,11 @@ export const comparisons = {
   },
   com_auth_email_address: {
     english: 'Email address',
-    translated: '电子邮箱地址',
+    translated: 'Email address',
   },
   com_auth_password: {
     english: 'Password',
-    translated: '密码',
+    translated: 'Password',
   },
   com_auth_password_required: {
     english: 'Password is required',
@@ -1268,7 +1268,7 @@ export const comparisons = {
   },
   com_auth_continue: {
     english: 'Continue',
-    translated: '继续',
+    translated: '登录',
   },
   com_auth_create_account: {
     english: 'Create your account',
@@ -1373,7 +1373,7 @@ export const comparisons = {
   },
   com_auth_welcome_back: {
     english: 'Welcome back',
-    translated: '欢迎',
+    translated: 'Welcome back',
   },
   com_auth_back_to_login: {
     english: 'Back to Login',
