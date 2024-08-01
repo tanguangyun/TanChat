@@ -43,11 +43,13 @@ version: '3.4'
 
 # # LOCAL BUILD
 # # 当地构建
-#   api:
-#     image: librechat
-#     build:
-#       context: .
-#       target: node
+    api:
+      volumes:
+        - ./librechat.yaml:/app/librechat.yaml
+      image: librechat
+      build:
+        context: .
+        target: node
 
 # # BUILD FROM LATEST IMAGE
 # # 根据最新镜像构建
@@ -71,18 +73,18 @@ version: '3.4'
 
 # # ADD MONGO-EXPRESS
 # # 添加Mongo-EXPRESS (数据库可视化后台)
-#   mongo-express:
-#     image: mongo-express
-#     container_name: mongo-express
-#     environment:
-#       ME_CONFIG_MONGODB_SERVER: mongodb
-#       ME_CONFIG_BASICAUTH_USERNAME: admin
-#       ME_CONFIG_BASICAUTH_PASSWORD: password
-#     ports:
-#       - '8081:8081'
-#     depends_on:
-#       - mongodb
-#     restart: always
+    mongo-express:
+      image: mongo-express
+      container_name: mongo-express
+      environment:
+        ME_CONFIG_MONGODB_SERVER: mongodb
+        ME_CONFIG_BASICAUTH_USERNAME: admin
+        ME_CONFIG_BASICAUTH_PASSWORD: tgy123456
+      ports:
+        - '8081:8081'
+      depends_on:
+        - mongodb
+      restart: always
 
 # # USE MONGODB V4.4.18 - FOR OLDER CPU WITHOUT AVX SUPPORT
 # # 使用mongodb V4.4.18-适用于不支持AVX的旧CPU
