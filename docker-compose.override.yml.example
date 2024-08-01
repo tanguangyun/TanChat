@@ -1,17 +1,25 @@
 version: '3.4'
 
 # Please consult our docs for more info: https://www.librechat.ai/docs/configuration/docker_override
+# 请查阅我们的文档以获取更多信息：https://www.librechat.ai/docs/configuration/docker_override
 
 # TO USE THIS FILE, FIRST UNCOMMENT THE LINE ('services:')
+# 要使用此文件，首先取消注释该行('services：')
 
 # THEN UNCOMMENT ONLY THE SECTION OR SECTIONS CONTAINING THE CHANGES YOU WANT TO APPLY
+# 然后仅对包含您要应用的更改的部分或部分进行未注释
 # SAVE THIS FILE AS 'docker-compose.override.yaml'
+# 将此文件保存为“docker-comple.override.yaml”
 # AND USE THE 'docker compose build' & 'docker compose up -d' COMMANDS AS YOU WOULD NORMALLY DO
+# 并使用'docker compose build'&'docker compose up-d'命令，就像您通常会做的那样
 
 # WARNING: YOU CAN ONLY SPECIFY EVERY SERVICE NAME ONCE (api, mongodb, meilisearch, ...)
+# 警告：您只能指定每个服务名称一次(api、mongodb、meilissearch、…)
 # IF YOU WANT TO OVERRIDE MULTIPLE SETTINGS IN ONE SERVICE YOU WILL HAVE TO EDIT ACCORDINGLY
+# 如果您想在一个服务中覆盖多个设置，您必须相应地进行编辑
 
 # EXAMPLE: if you want to use the config file and the latest numbered release docker image the result will be:
+# 示例：如果您想使用配置文件和最新编号的发布docker映像，结果将是：
 
 # services:
 #   api:
@@ -26,6 +34,7 @@ version: '3.4'
 # services:
 
 # # USE LIBRECHAT CONFIG FILE
+# # 使用Librechat配置文件
 #   api:
 #     volumes:
 #     - type: bind
@@ -33,6 +42,7 @@ version: '3.4'
 #       target: /app/librechat.yaml
 
 # # LOCAL BUILD
+# # 当地构建
 #   api:
 #     image: librechat
 #     build:
@@ -40,22 +50,27 @@ version: '3.4'
 #       target: node
 
 # # BUILD FROM LATEST IMAGE
+# # 根据最新镜像构建
 #   api:
 #     image: ghcr.io/danny-avila/librechat-dev:latest
  
 # # BUILD FROM LATEST IMAGE (NUMBERED RELEASE)
+# # 从最新镜像构建(编号发布)
 #   api:
 #     image: ghcr.io/danny-avila/librechat:latest
 
 # # BUILD FROM LATEST API IMAGE
+# # 从最新的API镜像构建
 #   api:
 #     image: ghcr.io/danny-avila/librechat-dev-api:latest
 
 # # BUILD FROM LATEST API IMAGE (NUMBERED RELEASE)
+# # 从最新的API镜像构建(编号发布)
 #   api:
 #     image: ghcr.io/danny-avila/librechat-api:latest
 
 # # ADD MONGO-EXPRESS
+# # 添加Mongo-EXPRESS (数据库可视化后台)
 #   mongo-express:
 #     image: mongo-express
 #     container_name: mongo-express
@@ -70,10 +85,12 @@ version: '3.4'
 #     restart: always
 
 # # USE MONGODB V4.4.18 - FOR OLDER CPU WITHOUT AVX SUPPORT
+# # 使用mongodb V4.4.18-适用于不支持AVX的旧CPU
 #   mongodb:
 #     image: mongo:4.4.18
 
 # # DISABLE THE MONGODB CONTAINER - YOU NEED TO SET AN ALTERNATIVE MONGODB URI IN THE .ENV FILE
+# # 禁用mongodb容器-您需要在.env文件中设置一个替代的mongodb URI
 #   api:
 #     environment:
 #       - MONGO_URI=${MONGO_URI}
@@ -83,25 +100,30 @@ version: '3.4'
 #     entrypoint: ""
 
 # # EXPOSE MONGODB PORTS - USE CAREFULLY, THIS MAKES YOUR DATABASE VULNERABLE TO ATTACKS
+# # 暴露mongodb端口-小心使用，这会使您的数据库容易受到攻击
 #   mongodb:
 #     ports:
 #       - 27018:27017
 
 # # DISABLE MEILISEARCH
+# # 禁用搜索
 #   meilisearch:
 #     profiles:
 #       - donotstart
 
 # # EXPOSE MEILISEARCH PORTS - DO NOT USE THE DEFAULT VALUE FOR THE MASTER KEY IF YOU DO THIS
+# # 暴露搜索端口-如果您这样做，请不要使用主密钥的默认值
 #   meilisearch:
 #     ports:
 #       - 7700:7700
 
 # # USE RAG API IMAGE WITH LOCAL EMBEDDINGS SUPPORT
+# # 将RAG API图像与本地嵌入支持一起使用
 #  rag_api:
 #    image: ghcr.io/danny-avila/librechat-rag-api-dev:latest
 
 # # ADD OLLAMA
+# # 添加ollama
 #  ollama:
 #    image: ollama/ollama:latest
 #    deploy:
@@ -116,6 +138,7 @@ version: '3.4'
 #      - ./ollama:/root/.ollama
 
 # # ADD LITELLM BASIC - NEED TO CONFIGURE litellm-config.yaml, ONLY NEED ENV TO ENABLE REDIS FOR CACHING OR LANGFUSE FOR MONITORING
+# # 添加litellm basic-需要配置litellm-config. yaml，只需要ENV启用REDIS进行缓存或LANGFUSE进行监控
 #  litellm:
 #    image: ghcr.io/berriai/litellm:main-latest
 #    volumes:
@@ -125,8 +148,8 @@ version: '3.4'
 #      - "4000:8000"
 #    command: [ "--config", "/app/config.yaml", "--port", "8000", "--num_workers", "8" ]
 #    environment:
-#      OPENAI_API_KEY: none ## needs to be set if ollama's openai api compatibility is used
-#      GOOGLE_APPLICATION_CREDENTIALS: /app/application_default_credentials.json ## only if using Google Vertex
+#      OPENAI_API_KEY: none ## needs to be set if ollama's openai api compatibility is used ##如果使用ollama的openai api兼容性，则需要设置
+#      GOOGLE_APPLICATION_CREDENTIALS: /app/application_default_credentials.json ## only if using Google Vertex ##仅当使用Google Vertex时
 #      REDIS_HOST: redis
 #      REDIS_PORT: 6379
 #      REDIS_PASSWORD: RedisChangeMe
@@ -135,18 +158,20 @@ version: '3.4'
 #      LANGFUSE_HOST: http://langfuse-server:3000
 
 # # ADD LITELLM CACHING
+# # 添加litellm缓存
 #  redis:
 #    image: redis:7-alpine
 #    command:
 #    - sh
-#    - -c # this is to evaluate the $REDIS_PASSWORD from the env
-#    - redis-server --appendonly yes --requirepass $$REDIS_PASSWORD ## $$ because of docker-compose
+#    - -c # this is to evaluate the $REDIS_PASSWORD from the env #这是为了评估环境中的REDIS_PASSWORD美元
+#    - redis-server --appendonly yes --requirepass $$REDIS_PASSWORD ## $$ because of docker-compose ## $$ 因为docker-compose
 #    environment:
 #      REDIS_PASSWORD: RedisChangeMe
 #    volumes:
 #    - ./redis:/data
   
 # # ADD LITELLM MONITORING
+# # 添加litellm监控
 #  langfuse-server:
 #    image: ghcr.io/langfuse/langfuse:latest
 #    depends_on:
